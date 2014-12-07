@@ -112,3 +112,15 @@ The four plots that you will need to construct are shown below.
 
 ![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5.png) 
 
+### Instructions
+Plot1.R contains R code that will create Plot.png as in the plot above.
+use source("Plot1.R") to load the source and then call the function plot1() to get the required png.
+
+This function will download the zip file from the location "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+
+Will unzip and extract the "household_power_consumption.txt" file 
+
+If the "household_power_consumption.txt" file is already present in the working folder, it will just use it.
+
+Will subset the data and create a plot and save it to the appropriate png.
+
