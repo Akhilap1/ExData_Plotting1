@@ -54,21 +54,24 @@ tmp_data$DateTime <- strptime(paste(tmp_data$Date, tmp_data$Time), "%Y-%m-%d %H:
 
 
 png("plot4.png", width=480, height=480)
-par(mfrow=c(2,2))
+par(mfrow=c(2,2), mar= c(4,4,4,1))
 
 with(tmp_data,
 { plot(DateTime, Global_active_power, type="l", xlab="", ylab="Global active power") 
   plot(DateTime, Voltage, type="l",ylab="Voltage")
-  plot(DateTime, Sub_metering_1, type="n",)
+  plot(DateTime, Sub_metering_1, type="n",ylab="Energy sub metering")
   legend ("topright", lty=c(1,1,1), lwd= c(1,1,1), col= c("black", "red", "blue"),
           legend = c("sub_metering_1", "sub_metering_2", "sub_metering_3"),
           pt.cex=0.75, y.intersp=0.75, bty="n", 
-          seg.len=0.5, x.intersp=0.5,text.width=strwidth("sub_metering_3"), trace=TRUE
+          seg.len=0.5, x.intersp=0.5,text.width=strwidth("sub_metering_3")
   )
+  
   points(DateTime, Sub_metering_1, type="l", col="black")       
   points(DateTime, Sub_metering_2, type="l", col="red")       
   points(DateTime, Sub_metering_3, type="l", col="blue")
   
-  plot(DateTime, Global_reactive_power, type="l")})
+  plot(DateTime, Global_reactive_power, type="l")
+  mtext(text="Plot 4", side =3, outer = TRUE)})
+
 dev.off()
 }
